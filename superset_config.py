@@ -321,3 +321,28 @@ def FLASK_APP_MUTATOR(app):
         icon="fa-refresh",
         category="",
     )
+# ---------------------------------------------------------
+# SMTP / Email
+# ---------------------------------------------------------
+
+SMTP_HOST = os.environ["SMTP_HOST"]
+
+SMTP_PORT = int(
+    os.environ.get("SMTP_PORT", "587")
+)
+
+SMTP_STARTTLS = (
+    os.environ.get("SMTP_STARTTLS", "true").lower() == "true"
+)
+
+SMTP_SSL = (
+    os.environ.get("SMTP_SSL", "false").lower() == "true"
+)
+
+SMTP_USER = os.environ["SMTP_USER"]
+SMTP_PASSWORD = os.environ["SMTP_PASSWORD"]
+
+SMTP_MAIL_FROM = os.environ.get(
+    "SMTP_MAIL_FROM",
+    SMTP_USER
+)
