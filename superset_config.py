@@ -114,9 +114,15 @@ class ProjectTrackerSyncView(BaseView):
 
                     success = 200 <= response.status < 300
 
+                if success:
+                    message = (
+                        "Project Tracker data synchronized successfully. "
+                        "The latest project data and dashboard KPIs have been updated."
+                    )
+                else:
                     message = (
                         response_body
-                        or "Project synchronization completed successfully."
+                        or "Synchronization could not be completed."
                     )
 
             except HTTPError as ex:
@@ -207,6 +213,21 @@ class ProjectTrackerSyncView(BaseView):
                         border-radius: 5px;
                         background: #ffebee;
                     }
+                    
+                    .dashboard-button {
+                        display: inline-block;
+                        margin-top: 18px;
+                        padding: 10px 22px;
+                        border-radius: 5px;
+                        background: #5b6470;
+                        color: white;
+                        text-decoration: none;
+                        font-size: 15px;
+                    }
+
+                    .dashboard-button:hover {
+                        opacity: 0.9;
+                    }
 
                     .note {
                         margin-top: 20px;
@@ -237,20 +258,29 @@ class ProjectTrackerSyncView(BaseView):
                             Sync Now
                         </button>
 
-                    </form>
+                        </form>
+                        {% if message %}
 
-                    {% if message %}
+                            <div class="{{ 'success' if success else 'error' }}">
+                                {{ message }}
+                            </div>
 
-                        <div class="{{ 'success' if success else 'error' }}">
-                            {{ message }}
+                            {% if success %}
+
+                                <a
+                                    href="/superset/dashboard/2/"
+                                    class="dashboard-button">
+                                    Return to Dashboard
+                                </a>
+
+                            {% endif %}
+
+                        {% endif %}
+                    {% if not success %}
+                        <div class="note">
+                            Please wait for the synchronization to complete before refreshing the dashboard.
                         </div>
-
-                    {% endif %}
-
-                    <div class="note">
-                        Please wait for the synchronization to complete
-                        before refreshing the dashboard.
-                    </div>
+                        {% endif %}
 
                 </div>
 
