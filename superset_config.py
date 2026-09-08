@@ -322,3 +322,26 @@ def FLASK_APP_MUTATOR(app):
         category="",
     )
 
+
+# ---------------------------------------------------------
+# Pareidolia Branding / Theme
+# ---------------------------------------------------------
+
+APP_NAME = "Pareidolia Project Tracker"
+
+ENABLE_UI_THEME_ADMINISTRATION = True
+
+THEME_DEFAULT = {
+    "token": {
+        "brandAppName": "Pareidolia Project Tracker",
+
+        "colorPrimary": "#2F9FC4",
+        "colorInfo": "#2F9FC4",
+        "colorLink": "#278BAE",
+
+        "borderRadius": 8,
+    }
+}
+
+# Keep production in a single light theme
+THEME_DARK = None
