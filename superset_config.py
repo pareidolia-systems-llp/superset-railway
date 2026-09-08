@@ -55,7 +55,6 @@ DATA_CACHE_CONFIG = CACHE_CONFIG
 
 SQLLAB_CTAS_NO_LIMIT = True
 
-
 # ---------------------------------------------------------
 # Custom User Menu
 # ---------------------------------------------------------
@@ -65,9 +64,10 @@ def FLASK_APP_MUTATOR(app):
 
     appbuilder.add_link(
         "Change Password",
-        href="/resetmypassword/form",
         label="Change Password",
+        href="/resetmypassword/form",
         icon="fa-key",
         category="User",
         category_label="User",
     )
+
