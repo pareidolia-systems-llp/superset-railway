@@ -329,7 +329,7 @@ def FLASK_APP_MUTATOR(app):
 
 APP_NAME = "Pareidolia Project Tracker"
 
-ENABLE_UI_THEME_ADMINISTRATION = True
+ENABLE_UI_THEME_ADMINISTRATION = False
 
 THEME_DEFAULT = {
     "token": {
