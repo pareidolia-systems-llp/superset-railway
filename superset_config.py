@@ -56,18 +56,19 @@ DATA_CACHE_CONFIG = CACHE_CONFIG
 SQLLAB_CTAS_NO_LIMIT = True
 
 # ---------------------------------------------------------
-# Custom User Menu
+# Custom Navigation
 # ---------------------------------------------------------
 
 def FLASK_APP_MUTATOR(app):
     from superset.extensions import appbuilder
 
+    app_root = (app.config.get("APPLICATION_ROOT") or "").rstrip("/")
+
     appbuilder.add_link(
         "Change Password",
         label="Change Password",
-        href="/resetmypassword/form",
+        href=f"{app_root}/resetmypassword/form",
         icon="fa-key",
-        category="User",
-        category_label="User",
+        category="",
     )
 
