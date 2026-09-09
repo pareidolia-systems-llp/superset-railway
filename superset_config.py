@@ -36,9 +36,8 @@ FEATURE_FLAGS = {
     "ENABLE_TEMPLATE_PROCESSING": True,
 }
 
-
 # ---------------------------------------------------------
-# Lightweight cache for initial deployment
+# Lightweight metadata cache
 # ---------------------------------------------------------
 
 CACHE_CONFIG = {
@@ -46,8 +45,18 @@ CACHE_CONFIG = {
     "CACHE_DEFAULT_TIMEOUT": 300,
 }
 
-DATA_CACHE_CONFIG = CACHE_CONFIG
 
+# ---------------------------------------------------------
+# Dashboard data freshness
+# ---------------------------------------------------------
+
+DATA_CACHE_CONFIG = {
+    "CACHE_TYPE": "SimpleCache",
+    "CACHE_DEFAULT_TIMEOUT": -1,
+}
+
+# Always load fresh values for native filter options as well
+NATIVE_FILTER_OPTIONS_CACHE_TIMEOUT = -1
 
 # ---------------------------------------------------------
 # SQL Lab
