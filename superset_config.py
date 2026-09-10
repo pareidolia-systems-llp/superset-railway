@@ -1,6 +1,6 @@
 import os
 from urllib.parse import quote_plus
-
+from superset.utils.log import DBEventLogger
 
 # ---------------------------------------------------------
 # Security
@@ -303,7 +303,7 @@ class ProjectTrackerSyncView(BaseView):
         
         
         
-  # ==========================================================
+# ==========================================================
 # FILTER SUPERSET EVENT LOGGING
 # ==========================================================
 
