@@ -319,34 +319,20 @@ class FilteredDBEventLogger(DBEventLogger):
         "log",
     }
 
-    def log(
-        self,
-        user_id,
-        action,
-        dashboard_id=None,
-        duration_ms=None,
-        slice_id=None,
-        referrer=None,
-        *args,
-        **kwargs,
-    ):
+    def log(self, user_id, action, *args, **kwargs):
+
         if action in self.IGNORED_ACTIONS:
             return
 
-        super().log(
-            user_id=user_id,
-            action=action,
-            dashboard_id=dashboard_id,
-            duration_ms=duration_ms,
-            slice_id=slice_id,
-            referrer=referrer,
+        return super().log(
+            user_id,
+            action,
             *args,
             **kwargs,
         )
 
 
 EVENT_LOGGER = FilteredDBEventLogger()
-
 
 # ---------------------------------------------------------
 # Flask App Customization
