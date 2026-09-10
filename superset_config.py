@@ -300,6 +300,52 @@ class ProjectTrackerSyncView(BaseView):
             message=message,
             success=success,
         )
+        
+        
+        
+  # ==========================================================
+# FILTER SUPERSET EVENT LOGGING
+# ==========================================================
+
+class FilteredDBEventLogger(DBEventLogger):
+
+    IGNORED_ACTIONS = {
+        "_get_data_response",
+        "ChartDataRestApi.data",
+        "ChartDataRestApi.json_dumps",
+        "load_into_dataframe",
+        "execute_sql",
+        "QueryObject.post_processing",
+        "log",
+    }
+
+    def log(
+        self,
+        user_id,
+        action,
+        dashboard_id=None,
+        duration_ms=None,
+        slice_id=None,
+        referrer=None,
+        *args,
+        **kwargs,
+    ):
+        if action in self.IGNORED_ACTIONS:
+            return
+
+        super().log(
+            user_id=user_id,
+            action=action,
+            dashboard_id=dashboard_id,
+            duration_ms=duration_ms,
+            slice_id=slice_id,
+            referrer=referrer,
+            *args,
+            **kwargs,
+        )
+
+
+EVENT_LOGGER = FilteredDBEventLogger()
 
 
 # ---------------------------------------------------------
