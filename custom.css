@@ -1,4 +1,4 @@
-/* Change Password */
+
 a[href*="/resetmypassword/form"]::before {
     content: "";
     display: inline-block;
@@ -6,14 +6,13 @@ a[href*="/resetmypassword/form"]::before {
     height: 18px;
     margin-right: 7px;
     vertical-align: -3px;
-
     background-image: url("/static/custom-assets/password-icon.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 18px 18px;
 }
 
-/* Manual Sync */
+
 a[href*="/project-tracker-sync"]::before {
     content: "";
     display: inline-block;
@@ -21,9 +20,9 @@ a[href*="/project-tracker-sync"]::before {
     height: 16px;
     margin-right: 7px;
     vertical-align: -2px;
-
     background-image: url("/static/custom-assets/sync-icon.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 16px 16px;
 }
+
