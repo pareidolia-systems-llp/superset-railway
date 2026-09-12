@@ -11,6 +11,9 @@ RUN apt-get update \
     && . /app/.venv/bin/activate \
     && uv pip install mysqlclient
 
+# Replace the default Superset logo with a transparent image
+RUN python -c "from pathlib import Path; import base64; p=Path('/app/superset/static/assets/images/superset-logo-horiz.png'); assert p.exists(), f'Logo asset not found: {p}'; p.write_bytes(base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGNgYGBgAAAABQABpfZFQAAAAABJRU5ErkJggg=='))"
+
 COPY superset_config.py /app/pythonpath/superset_config.py
 
 ENV SUPERSET_CONFIG_PATH=/app/pythonpath/superset_config.py
