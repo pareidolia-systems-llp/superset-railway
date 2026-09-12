@@ -8,6 +8,8 @@ from superset.utils.log import DBEventLogger
 
 SECRET_KEY = os.environ["SUPERSET_SECRET_KEY"]
 
+APP_NAME = "Pareidolia Tracker"
+
 ENABLE_PROXY_FIX = True
 
 
@@ -37,11 +39,6 @@ FEATURE_FLAGS = {
 }
 
 
-# ---------------------------------------------------------
-# UI / Branding
-# ---------------------------------------------------------
-
-HIDE_NAVBAR_LOGO = True
 
 # ---------------------------------------------------------
 # Lightweight metadata cache
