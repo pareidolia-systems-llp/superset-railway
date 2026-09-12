@@ -1,0 +1,34 @@
+/* =========================================================
+   Pareidolia Tracker - Custom navigation icons
+   ========================================================= */
+
+/* Change Password */
+a[href*="/resetmypassword/form"]::before {
+    content: "";
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    margin-right: 6px;
+    vertical-align: -3px;
+
+    background-image: url("/static/custom-assets/password-icon.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+
+/* Manual Sync */
+a[href*="/project-tracker-sync"]::before {
+    content: "";
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    margin-right: 6px;
+    vertical-align: -3px;
+
+    background-image: url("/static/custom-assets/sync-icon.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
