@@ -10,6 +10,14 @@ SECRET_KEY = os.environ["SUPERSET_SECRET_KEY"]
 
 APP_NAME = "Pareidolia Tracker"
 
+FAVICONS = [
+    {
+        "href": "/static/custom-assets/tracker-icon.png?v=1",
+        "type": "image/png",
+        "rel": "icon",
+    }
+]
+
 ENABLE_PROXY_FIX = True
 
 
@@ -338,10 +346,6 @@ class FilteredDBEventLogger(DBEventLogger):
 
 EVENT_LOGGER = FilteredDBEventLogger()
 
-# ---------------------------------------------------------
-# Flask App Customization
-# ---------------------------------------------------------
-
 def FLASK_APP_MUTATOR(app):
 
     from superset.extensions import appbuilder
@@ -366,6 +370,35 @@ def FLASK_APP_MUTATOR(app):
         icon="fa-refresh",
         category="",
     )
+
+    # ------------------------------------------------------
+    # Custom Pareidolia Tracker UI assets
+    # ------------------------------------------------------
+
+    @app.after_request
+    def inject_project_tracker_assets(response):
+
+        content_type = response.headers.get("Content-Type", "")
+
+        if "text/html" not in content_type:
+            return response
+
+        html = response.get_data(as_text=True)
+
+        custom_css = (
+            f'<link rel="stylesheet" '
+            f'href="{app_root}/static/custom-assets/custom.css?v=1">'
+        )
+
+        if "</head>" in html and custom_css not in html:
+            html = html.replace(
+                "</head>",
+                custom_css + "</head>"
+            )
+
+            response.set_data(html)
+
+        return response
 # ---------------------------------------------------------
 # SMTP / Email
 # ---------------------------------------------------------
