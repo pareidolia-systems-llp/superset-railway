@@ -164,7 +164,7 @@ img[src*="superset-logo-horiz.png"] {
    Project Tracker login page
    ========================================================= */
 
-body:has([data-test="login-form"]) {
+body.project-tracker-login-page {
     background:
         linear-gradient(
             rgba(10, 20, 30, 0.18),
@@ -172,17 +172,4 @@ body:has([data-test="login-form"]) {
         ),
         url("/static/custom-assets/login-bg.png")
         center center / cover no-repeat fixed !important;
-}
-
-/* Keep the real Superset login area transparent */
-body:has([data-test="login-form"])
-[data-test="login-form"] {
-    background: transparent !important;
-}
-
-/* Make the real sign-in card stand out over the illustration */
-body:has([data-test="login-form"])
-[data-test="login-form"] > div {
-    position: relative;
-    z-index: 1;
 }
