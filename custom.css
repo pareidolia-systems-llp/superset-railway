@@ -145,3 +145,18 @@ a[href*="/tablemodelview/list/"]::before {
     background-position: center;
     background-size: contain;
 }
+/* =========================================================
+   Tracker home icon
+   ========================================================= */
+
+img[src*="superset-logo-horiz.png"] {
+    width: 26px !important;
+    height: 26px !important;
+    max-width: 26px !important;
+    max-height: 26px !important;
+
+    object-fit: contain !important;
+
+    margin-left: 4px !important;
+    margin-right: 6px !important;
+}
