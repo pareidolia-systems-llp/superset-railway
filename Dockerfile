@@ -11,8 +11,8 @@ RUN apt-get update \
     && . /app/.venv/bin/activate \
     && uv pip install mysqlclient
 
-# Replace the default Superset logo with a transparent image
-RUN python -c "from pathlib import Path; import base64; p=Path('/app/superset/static/assets/images/superset-logo-horiz.png'); assert p.exists(), f'Logo asset not found: {p}'; p.write_bytes(base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGNgYGBgAAAABQABpfZFQAAAAABJRU5ErkJggg=='))"
+# Use Pareidolia Tracker icon in the Superset navbar logo slot
+COPY assets/tracker-icon.png /app/superset/static/assets/images/superset-logo-horiz.png
 
 # Custom Pareidolia Tracker UI assets
 RUN mkdir -p /app/superset/static/custom-assets
