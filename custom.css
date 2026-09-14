@@ -2,21 +2,34 @@
    Pareidolia Tracker - Custom navigation icons
    ========================================================= */
 
-/* Change Password */
-a[href*="/resetmypassword/form"] {
+/* Change Password + Manual Sync */
+a[href*="/resetmypassword/form"],
+a[href*="/project-tracker-sync"] {
     display: inline-flex !important;
+    flex-direction: row !important;
     align-items: center !important;
+    justify-content: flex-start !important;
     gap: 6px !important;
+    white-space: nowrap !important;
+    line-height: 1 !important;
 }
 
+
+/* Change Password icon */
 a[href*="/resetmypassword/form"]::before {
     content: "";
-    display: inline-block;
-    width: 18px;
-    height: 18px;
-    flex: 0 0 18px;
+    display: block !important;
+
+    width: 18px !important;
+    height: 18px !important;
+    flex: 0 0 18px !important;
+
     margin: 0 !important;
-    vertical-align: initial !important;
+    padding: 0 !important;
+
+    position: static !important;
+    transform: none !important;
+    vertical-align: middle !important;
 
     background-image: url("/static/custom-assets/password-icon.png");
     background-repeat: no-repeat;
@@ -25,21 +38,21 @@ a[href*="/resetmypassword/form"]::before {
 }
 
 
-/* Manual Sync */
-a[href*="/project-tracker-sync"] {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 6px !important;
-}
-
+/* Manual Sync icon */
 a[href*="/project-tracker-sync"]::before {
     content: "";
-    display: inline-block;
-    width: 17px;
-    height: 17px;
-    flex: 0 0 17px;
+    display: block !important;
+
+    width: 17px !important;
+    height: 17px !important;
+    flex: 0 0 17px !important;
+
     margin: 0 !important;
-    vertical-align: initial !important;
+    padding: 0 !important;
+
+    position: static !important;
+    transform: none !important;
+    vertical-align: middle !important;
 
     background-image: url("/static/custom-assets/sync-icon.png");
     background-repeat: no-repeat;
