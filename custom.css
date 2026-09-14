@@ -59,3 +59,89 @@ a[href*="/project-tracker-sync"]::before {
     background-position: center;
     background-size: 17px 17px;
 }
+/* =========================================================
+   Standard Superset navigation icons
+   ========================================================= */
+
+/* Dashboards */
+a[href*="/dashboard/list/"] {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 6px !important;
+    white-space: nowrap !important;
+}
+
+a[href*="/dashboard/list/"]::before {
+    content: "";
+    display: block !important;
+    width: 17px !important;
+    height: 17px !important;
+    flex: 0 0 17px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+    position: static !important;
+    transform: none !important;
+
+    background-image: url("/static/custom-assets/dashboards_logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+
+/* Charts */
+a[href*="/chart/list/"] {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 6px !important;
+    white-space: nowrap !important;
+}
+
+a[href*="/chart/list/"]::before {
+    content: "";
+    display: block !important;
+    width: 17px !important;
+    height: 17px !important;
+    flex: 0 0 17px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+    position: static !important;
+    transform: none !important;
+
+    background-image: url("/static/custom-assets/charts_logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+
+/* Datasets */
+a[href*="/tablemodelview/list/"] {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 6px !important;
+    white-space: nowrap !important;
+}
+
+a[href*="/tablemodelview/list/"]::before {
+    content: "";
+    display: block !important;
+    width: 17px !important;
+    height: 17px !important;
+    flex: 0 0 17px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+    position: static !important;
+    transform: none !important;
+
+    background-image: url("/static/custom-assets/datasets_logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
