@@ -80,7 +80,7 @@ SQLLAB_CTAS_NO_LIMIT = True
 # Custom Project Tracker Actions
 # ---------------------------------------------------------
 
-from flask import render_template_string
+from flask import render_template_string, request
 from flask_appbuilder import BaseView, expose
 from flask_appbuilder.security.decorators import has_access
 from flask_wtf import FlaskForm
@@ -387,13 +387,19 @@ def FLASK_APP_MUTATOR(app):
 
         custom_css = (
             f'<link rel="stylesheet" '
-            f'href="{app_root}/static/custom-assets/custom.css?v=1">'
+            f'href="{app_root}/static/custom-assets/custom.css?v=2">'
         )
 
         if "</head>" in html and custom_css not in html:
             html = html.replace(
                 "</head>",
                 custom_css + "</head>"
+            )
+                if request.path.startswith("/login"):
+            html = html.replace(
+                "<body",
+                '<body class="project-tracker-login-page"',
+                1
             )
 
             response.set_data(html)
