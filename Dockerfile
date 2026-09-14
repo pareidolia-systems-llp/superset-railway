@@ -26,6 +26,8 @@ COPY assets/dashboards_logo.png /app/superset/static/custom-assets/dashboards_lo
 COPY assets/charts_logo.png /app/superset/static/custom-assets/charts_logo.png
 COPY assets/datasets_logo.png /app/superset/static/custom-assets/datasets_logo.png
 
+COPY assets/login-bg.png /app/superset/static/custom-assets/login-bg.png
+
 COPY superset_config.py /app/pythonpath/superset_config.py
 
 ENV SUPERSET_CONFIG_PATH=/app/pythonpath/superset_config.py
